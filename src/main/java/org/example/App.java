@@ -14,13 +14,18 @@ public class App
     public static void main( String[] args )
     {
         List<Person> people1 = List.of(
-                new Person(1,"jon",Sex.MALE, LocalDate.of(1994,1, 1), Collections.emptyList()),
-                new Person(2,"bob",Sex.MALE,LocalDate.of(1990,1, 1), Collections.emptyList()),
-                new Person(3,"Yrick",Sex.MALE,LocalDate.of(1999,1, 1),Collections.emptyList()),
+                new Person(1,"jon",Sex.MALE, LocalDate.of(1994,1, 1),
+                        List.of(new Dog(1, "Racks"), new Dog(2, "Bobik"))),
+                new Person(2,"bob",Sex.MALE,LocalDate.of(1990,1, 1),
+                        List.of(new Dog(1, "Bimbo"), new Dog(2, "Bobik"))),
+                new Person(3,"Yrick",Sex.MALE,LocalDate.of(1999,1, 1),
+                        List.of(new Dog(1, "Alex"))),
                 new Person(4,"Jora",Sex.MALE,LocalDate.of(1998,1, 1),Collections.emptyList()),
                 new Person(5,"Nady",Sex.FEMALE,LocalDate.of(1991,1, 1),Collections.emptyList()),
-                new Person(6,"Luba",Sex.FEMALE,LocalDate.of(2001,1, 1),Collections.emptyList()),
-                new Person(7,"Slava",Sex.MALE,LocalDate.of(2003,1, 1),Collections.emptyList()),
+                new Person(6,"Luba",Sex.FEMALE,LocalDate.of(2001,1, 1),
+                        List.of(new Dog(1, "Chip"))),
+                new Person(7,"Slava",Sex.MALE,LocalDate.of(2003,1, 1),
+                        List.of(new Dog(1, "Flash"), new Dog(2, "Lark"))),
                 new Person(8,"Natasha",Sex.FEMALE,LocalDate.of(2002,1, 1),Collections.emptyList())
 
         );
