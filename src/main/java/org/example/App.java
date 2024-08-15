@@ -1,9 +1,8 @@
 package org.example;
 
+
 import java.time.LocalDate;
-import java.util.Collections;
-import java.util.List;
-import java.util.stream.Collectors;
+import java.util.*;
 
 public class App
 {
@@ -41,6 +40,19 @@ public class App
                 new Person(8,"Natasha",Sex.FEMALE,LocalDate.of(2002,1, 1), Collections.emptyList())
 
         );
+
+//         Map<Integer, Integer> map = people1.stream().filter(p -> p.getBirthday().isBefore(LocalDate.now().minusYears(25))).
+//                peek(p -> System.out.println(p.getName())).collect(Collectors.toMap(p -> p.getId(), p -> p.getBirthday().getYear()));
+//         map.forEach((k, z) -> System.out.println("id " + k + " year: " + z));
+
+//         List list = new ArrayList<>(people2.stream().
+//                 collect(Collectors.toMap(Person::getId, Function.identity(), BinaryOperator.maxBy(Comparator.comparing(Person::getBirthday)))).
+//                 values());
+//         list.forEach(System.out::println);
+
+        System.out.println(people1.stream().mapToInt(Person::getId).sum());
+
+        people1.stream().map(Person::getDogs).flatMap(List::stream).map(Dog::getName).forEach(System.out::println);
     }
 
 
@@ -103,7 +115,16 @@ class Person{
         this.dogs = dogs;
     }
 
-
+    @Override
+    public String toString() {
+        return "Person{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", sex=" + sex +
+                ", birthday=" + birthday +
+                ", dogs=" + dogs +
+                '}';
+    }
 }
 
 enum Sex {
